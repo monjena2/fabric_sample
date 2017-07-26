@@ -1,0 +1,58 @@
+{
+	"env": "local",
+	"processname": "BlockchainSampleClient",
+	"request": {
+		"size": "16mb"
+	},
+
+	"chaincode": {
+		"id": "b643c9fd5648977d39365de4d3d50a06f7231efcd38b4530b298393596ecef65f5fa1d3f749cac6d76a01f7f319bc91f3514a682cd93467a5696772b2b9e68d6",
+		"name": "cp_chaincode"
+	},
+
+	"databases": {
+		"devWorksAppMaster": "devworks_app_master"
+
+	},
+
+	"VCAP_SERVICES": {
+		"cloudantNoSQLDB": [{
+			"name": "Cloudant NoSQL DB-vern",
+			"label": "cloudantNoSQLDB",
+			"plan": "Lite",
+			"credentials": {
+			"url": "https://9bfb080b-6b3b-40dc-85e3-f97020997205-bluemix:08cb2546ed6643a8383042cd51762852d5ec83f1fe21ca2072733521adaaa6de@9bfb080b-6b3b-40dc-85e3-f97020997205-bluemix.cloudant.com"
+				
+			}
+		}],
+		"ibm-blockchain-5-prod": [{
+			"name": "Blockchain-v6-devWorks",
+			"label": "ibm-blockchain-5-prod",
+			"plan": "ibm-blockchain-plan-5-prod",
+			"credentials": { 
+			"cert": "https://blockchain-certs.mybluemix.net/us.blockchain.ibm.com.cert"
+				
+			}
+		}]
+	},
+
+	"log4js": {
+		"replaceConsole": true,
+		"appenders": [{
+			"type": "console"
+		}, {
+			"type": "dateFile",
+			"filename": "logs/giftapp-${env}",
+			"pattern": "-yyyy-MM-dd.log",
+			"alwaysIncludePattern": true,
+			"layout": {
+				"type": "colored"
+			}
+		}],
+		"levels": {
+			"[default]": "all"
+		}
+	}
+
+
+}
